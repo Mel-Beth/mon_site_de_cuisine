@@ -1,0 +1,516 @@
+/* styles/style.css */
+
+/* Reset et box-sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles généraux du body */
+body {
+  display: flex; /* Utilise Flexbox */
+  flex-direction: column; /* Aligne les enfants en colonne */
+  justify-content: center; /* Centre verticalement */
+  align-items: center; /* Centre horizontalement */
+  min-height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  margin: 0; /* Supprime la marge par défaut */
+  font-family: "Arial", sans-serif;
+  background-image: url("../images/image_fond_ecran.jpeg"); /* Ajustez le chemin si nécessaire */
+  background-size: cover;
+  background-position: center;
+  color: #333; /* Couleur du texte */
+  line-height: 1.6; /* Améliore la lisibilité */
+}
+
+
+/* Styles pour la barre de navigation */
+.main-nav {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
+  z-index: 1000; /* Assurez-vous que la barre de navigation est au-dessus */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Ombre pour la barre de navigation */
+}
+
+.main-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav ul li {
+  float: left;
+  position: relative; /* Nécessaire pour le dropdown */
+}
+
+.main-nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px; /* Augmentation de l'espacement */
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s; /* Ajoute une transition douce */
+}
+
+.main-nav ul li a:hover {
+  background-color: #ffcc00; /* Change la couleur de fond au survol */
+  transform: scale(1.05); /* Agrandissement au survol */
+}
+
+/* Styles pour le menu déroulant */
+.dropdown {
+  display: none; /* Cacher le dropdown par défaut */
+  position: absolute; /* Positionner le dropdown */
+  background-color: rgba(30, 30, 30, 0.95); /* Fond sombre semi-transparent */
+  min-width: 200px; /* Largeur minimale du dropdown */
+  z-index: 9999; /* Augmentez le z-index pour le test */
+  margin-top: 10px; /* Ajoutez une marge pour le rendre visible */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre pour un effet de profondeur */
+  overflow: hidden; /* Cache les débordements */
+}
+
+.dropdown li {
+  float: none; /* Éléments de la liste en mode bloc */
+  text-align: left; /* Alignement à gauche pour les éléments du dropdown */
+}
+
+.dropdown li a {
+  padding: 12px 20px; /* Espacement pour les éléments du dropdown */
+  color: #ffcc00; /* Couleur du texte en jaune pour contraster avec le fond sombre */
+  transition: background-color 0.3s, padding-left 0.3s; /* Transition douce pour le survol */
+}
+
+.dropdown li a:hover {
+  background-color: rgba(255, 204, 0, 0.2); /* Couleur de fond au survol des éléments du dropdown */
+  padding-left: 30px; /* Ajoute un effet d'indentation au survol */
+}
+
+/* Afficher le dropdown au survol */
+.main-nav ul li:hover .dropdown {
+  display: block; /* Afficher le dropdown au survol */
+}
+
+/* Ajout d'un style pour éviter le chevauchement */
+.dropdown li {
+  clear: both; /* S'assurer que les éléments ne se chevauchent pas */
+}
+
+
+/* Styles pour le titre principal */
+.main-title {
+  text-align: center; /* Centrer le texte */
+  font-size: 2.5em; /* Taille du texte */
+  margin: 30px 0; /* Marge autour du titre */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre pour le texte */
+}
+
+.card-lien {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Styles pour la présentation */
+.presentation {
+  text-align: center;
+  padding: 20px; /* Espacement autour de la présentation */
+  background-color: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent */
+  border-radius: 10px; /* Coins arrondis */
+  margin: 20px; /* Marge autour de la section */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre pour la section */
+}
+
+/* Styles pour la barre de recherche */
+.search-bar {
+  text-align: center; /* Centre la barre de recherche */
+  margin: 20px 0; /* Marge autour de la barre de recherche */
+}
+
+.search-bar input[type="text"] {
+  padding: 10px; /* Espacement intérieur */
+  width: 300px; /* Largeur de l'input */
+  border: 1px solid #ccc; /* Bordure */
+  border-radius: 5px; /* Coins arrondis */
+  transition: border-color 0.3s; /* Transition pour le focus */
+}
+
+.search-bar input[type="text"]:focus {
+  border-color: #ffcc00; /* Bordure jaune au focus */
+  outline: none; /* Supprime le contour par défaut */
+}
+
+.search-bar button {
+  padding: 10px 15px; /* Espacement intérieur */
+  background-color: #ffcc00; /* Couleur de fond */
+  border: none; /* Pas de bordure */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur en main */
+  transition: background-color 0.3s, transform 0.3s; /* Transition pour le survol */
+}
+
+.search-bar button:hover {
+  background-color: #e6b800; /* Couleur au survol */
+  transform: scale(1.05); /* Agrandissement au survol */
+}
+
+/* Styles pour les catégories et recettes */
+h2 {
+  width: 40%;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; /* Centre les titres */
+  font-size: 2em; /* Taille des titres */
+  color: white; /* Couleur des titres */
+  background-color: rgba(0, 0, 0, 0.5); /* Fond noir semi-transparent */
+  padding: 10px; /* Espacement intérieur */
+  border-radius: 5px; /* Coins arrondis */
+}
+
+.categories,
+.popular-recipes {
+  display: flex; /* Utilise flexbox pour l'alignement */
+  justify-content: center; /* Centre les éléments */
+  flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent */
+  border-radius: 10px; /* Coins arrondis */
+  margin: 15px; /* Marge autour des cartes */
+  padding: 20px; /* Espacement intérieur */
+  text-align: center; /* Centre le texte */
+  width: 220px; /* Largeur fixe pour les cartes */
+  height: 300px; /* Hauteur fixe pour les cartes */
+  display: flex; /* Utilise flexbox */
+  flex-direction: column; /* Aligne les éléments en colonne */
+  justify-content: space-between; /* Espace entre les éléments */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transition pour les effets de survol */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère pour les cartes */
+}
+
+.card-content {
+  display: flex; /* Utilise flexbox pour centrer le contenu */
+  flex-direction: column; /* Aligne les éléments en colonne */
+  justify-content: center; /* Centre verticalement */
+  flex-grow: 1; /* Permet à cette section de prendre tout l'espace disponible */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Déplacement léger vers le haut au survol */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Ombre plus marquée au survol */
+}
+
+/* Styles pour les images des cartes */
+.card-image {
+  max-width: 100%; /* Limite la largeur à 100% de l'élément parent */
+  height: auto; /* Maintient le ratio d'aspect de l'image */
+  border-radius: 5px; /* Coins arrondis pour les images */
+  max-height: 150px; /* Hauteur maximale pour l'image */
+}
+
+/* Styles pour le footer */
+footer {
+  background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
+  text-align: center; /* Centre le texte */
+  padding: 15px; /* Espacement intérieur */
+  margin-top: auto; /* Pousse le footer vers le bas */
+  width: 100%; /* S'assure que le footer prend toute la largeur */
+}
+
+footer p {
+  margin: 0; /* Supprime les marges par défaut */
+  color: #fff; /* Couleur du texte */
+  font-size: 1em; /* Taille de la police */
+}
+
+/* Styles pour les petits écrans */
+@media (max-width: 600px) {
+  .card {
+    width: 90%; /* Prend presque toute la largeur sur les petits écrans */
+    margin: 10px auto; /* Centre la carte avec une marge automatique */
+  }
+
+  .main-nav ul {
+    flex-direction: column; /* Affiche les éléments de navigation en colonne */
+    align-items: center; /* Centre les éléments de navigation */
+  }
+
+  .main-nav ul li {
+    margin: 5px 0; /* Marge entre les liens */
+  }
+
+  .search-bar {
+    flex-direction: column; /* Aligne les éléments de la barre de recherche verticalement */
+  }
+
+  .search-bar input[type="text"] {
+    width: 100%; /* Largeur complète sur les petits écrans */
+    margin-bottom: 10px; /* Marge en bas pour séparer le bouton */
+  }
+}
+
+/* Styles pour la scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ffcc00, #e6b800);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  transition: background 0.3s, transform 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #e6b800, #ffcc00);
+  transform: scale(1.1);
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Pour Firefox, vous ne pouvez pas avoir de dégradés, mais vous pouvez ajouter une ombre */
+.scrollbar-thumb {
+  background: #ffcc00; /* Couleur du pouce */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Ombre pour le pouce */
+  border-radius: 10px; /* Coins arrondis */
+}
+
+/* Styles pour les recettes */
+
+/* Liste des recettes */
+.recettes-category {
+  display: flex; /* Utilise flexbox pour le layout */
+  flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
+  justify-content: center; /* Centre les éléments */
+  margin-bottom: 30px; /* Ajoute un espacement entre les catégories */
+}
+
+/* Carte de recette */
+.recette-card {
+  background-color: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent */
+  border-radius: 10px; /* Coins arrondis */
+  margin: 15px; /* Marge autour des cartes */
+  padding: 20px; /* Espacement intérieur */
+  text-align: center; /* Centre le texte */
+  width: 220px; /* Largeur fixe pour les cartes */
+  min-height: 350px; /* Hauteur minimale pour les cartes pour éviter le chevauchement */
+  display: flex; /* Utilise flexbox */
+  flex-direction: column; /* Aligne les éléments en colonne */
+  justify-content: space-between; /* Espace entre les éléments */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transition pour les effets de survol */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère pour les cartes */
+}
+
+.recette-card:hover {
+  transform: translateY(-5px); /* Déplacement léger vers le haut au survol */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Ombre plus marquée au survol */
+}
+
+/* Image de la recette */
+.recette-image {
+  max-width: 100%; /* Limite la largeur à 100% de l'élément parent */
+  height: auto; /* Maintient le ratio d'aspect de l'image */
+  border-radius: 5px; /* Coins arrondis pour les images */
+  max-height: 150px; /* Hauteur maximale pour l'image */
+}
+
+/* Titre de la recette */
+.recette-title {
+  font-size: 1.5em; /* Taille du titre */
+  margin: 10px 0; /* Marge autour du titre */
+  color: #333; /* Couleur du texte */
+}
+
+/* Description de la recette */
+.recette-description {
+  font-size: 0.9em; /* Taille de la description */
+  color: #666; /* Couleur de la description */
+}
+
+/* Bouton de voir la recette */
+.view-recipe-button {
+  display: inline-block;
+  background-color: #ffcc00; /* Couleur de fond */
+  color: #333; /* Couleur du texte */
+  padding: 10px 15px; /* Espacement intérieur
+    text-decoration: none; /* Pas de soulignement */
+  border-radius: 5px; /* Coins arrondis */
+  transition: background-color 0.3s, transform 0.3s; /* Transition pour le survol */
+  margin-top: 10px; /* Marge en haut */
+}
+
+.view-recipe-button:hover {
+  background-color: #e6b800; /* Couleur au survol */
+  transform: scale(1.05); /* Agrandissement au survol */
+}
+
+/* Styles pour les petits écrans */
+@media (max-width: 600px) {
+  .recette-card {
+    width: 90%; /* Prend presque toute la largeur sur les petits écrans */
+    margin: 10px auto; /* Centre la carte avec une marge automatique */
+    min-height: 300px; /* Hauteur minimale pour les cartes sur petits écrans */
+  }
+}
+
+/* Conteneur principal du formulaire */
+.container {
+  margin-top: auto;
+  background-color: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent */
+  border-radius: 10px; /* Coins arrondis */
+  padding: 30px; /* Espacement intérieur */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre pour la section */
+  max-width: 400px; /* Largeur maximale pour la boîte d'inscription */
+  width: 100%; /* Largeur complète pour les petits écrans */
+  text-align: center; /* Centre le texte */
+  max-height: 500px; /* Hauteur maximale pour le conteneur */
+  overflow: auto; /* Ajoute un défilement si le contenu dépasse */
+}
+
+/* Titre de la section d'inscription */
+.title {
+  font-size: 2.5em;
+  /* Taille du titre */
+  color: #333;
+  /* Couleur du texte */
+  margin-bottom: 20px;
+  /* Marge en bas */
+}
+
+/* Styles pour les groupes de formulaire */
+.form-group {
+  margin-bottom: 20px;
+  /* Marge en bas des groupes de formulaire */
+}
+
+/* Styles pour les labels */
+label {
+  display: block;
+  /* Affiche les labels en bloc */
+  margin-bottom: 5px;
+  /* Marge en bas des labels */
+  color: #495057;
+  /* Couleur des labels */
+}
+
+/* Styles pour les champs de saisie */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  /* Largeur complète */
+  padding: 10px;
+  /* Espacement intérieur */
+  border: 1px solid #ccc;
+  /* Bordure grise */
+  border-radius: 5px;
+  /* Coins arrondis */
+  transition: border-color 0.3s;
+  /* Transition pour le focus */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #ffcc00;
+  /* Bordure jaune au focus */
+  outline: none;
+  /* Supprime le contour par défaut */
+}
+
+/* Bouton d'inscription */
+.submit-button {
+  width: 70%;
+  margin: 10px;
+  padding: 10px;
+  /* Espacement intérieur */
+  background-color: #ffcc00;
+  /* Couleur de fond */
+  color: #333;
+  /* Couleur du texte */
+  border: none;
+  /* Pas de bordure */
+  border-radius: 5px;
+  /* Coins arrondis */
+  cursor: pointer;
+  /* Curseur en main */
+  font-size: 16px;
+  /* Taille de la police */
+  transition: background-color 0.3s, transform 0.3s;
+  /* Transition pour le survol */
+  
+}
+
+.submit-button:hover {
+  background-color: #e6b800;
+  /* Couleur au survol */
+  transform: scale(1.05);
+  /* Agrandissement au survol */
+}
+
+/* Lien de connexion */
+.login-link {
+  display: block;
+  /* Affiche le lien en bloc */
+  margin-top: 15px;
+  /* Marge en haut */
+  color: #007bff;
+  /* Couleur du lien */
+  text-decoration: none;
+  /* Pas de soulignement */
+  transition: color 0.3s;
+  /* Transition pour le survol */
+}
+
+.login-link:hover {
+  color: #0056b3;
+  /* Couleur au survol */
+}
+
+/* Styles pour les messages d'erreur */
+.error-message {
+  color: red;
+  /* Couleur rouge pour les messages d'erreur */
+  margin-top: 15px;
+  /* Marge en haut */
+  font-size: 0.9em;
+  /* Taille de la police */
+}
+
+.search-bar {
+  position: relative; /* Nécessaire pour positionner la boîte de suggestions */
+  margin-bottom: 20px; /* Ajouter un espacement en bas pour éviter le chevauchement */
+}
+
+.suggestions-box {
+  border: 1px solid #ddd;
+  background-color: white;
+  position: relative; /* Changer de absolute à relative */
+  z-index: 1000;
+  width: calc(100% - 22px); /* Ajuster la largeur pour éviter le débordement */
+  max-height: 150px; /* Limiter la hauteur */
+  overflow-y: auto; /* Ajouter un défilement si nécessaire */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour un effet de profondeur */
+  border-radius: 4px; /* Arrondir les coins */
+  display: none; /* Initialement caché */
+}
+
+.suggestions-box.show {
+  display: block; /* Afficher la boîte de suggestions */
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0; /* Changer le fond au survol */
+}
